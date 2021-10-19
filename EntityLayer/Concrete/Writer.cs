@@ -17,5 +17,7 @@ namespace EntityLayer.Concrete
 		public string WriterPassword { get; set; }
 		public string WriterImage { get; set; }
 		public bool WriterStatus { get; set; }
+		public int CityId { get; set; }
+		public City City { get; set; }
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Concrete;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace DataAcessLayer.Abstract
 {
 	public interface IWriterDal:IGenericDal<Writer>
 	{
+		
 	}
 }

@@ -1,0 +1,113 @@
+﻿@*@model IEnumerable<EntityLayer.Concrete.City>*@
+
+
+@model EntityLayer.Concrete.City
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<section class="main-content-w3layouts-agileits">
+    <div class="container">
+        <h3 class="tittle">Yazar Kayıt Sayfası</h3>
+        <div class="inner-sec">
+            <div class="login p-5 bg-light mx-auto mw-100">
+                <form method="post">
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom01">Adınız soyadınız: </label>
+                            <input type="text" class="form-control" id="validationDefault01" name="WriterName" placeholder="" required="">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02">Mail Adresi</label>
+                            <input type="email" class="form-control" name="WriterMail" id="validationDefault02" placeholder="" required="">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputPassword1 mb-2">Şifre</label>
+                            <input type="password" class="form-control" name="WriterPassWord" id="password" placeholder="" required="required">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputPassword2 mb-2">Şifre Tekrar</label>
+                            <input type="password" class="form-control" placeholder="" required="required" oninput="passCheck(this)">
+                        </div>
+                        <script language='javascript' type='text/javascript'>
+                            function passCheck(input) {
+                                if (input.value != document.getElementById('password').value) {
+                                    input.setCustomValidity('Şifreler uyuşmuyor!!!');
+                                }
+                                else {
+                                    input.setCustomValidity('');
+                                }
+                            }
+                        </script>
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputPassword2 mb-2">Görsel dosya yolu</label>
+                            <input type="text" class="form-control" placeholder="" required="">
+                        </div>
+
+                        @*
+                            dropdown list
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputPassword2 mb-2">Şehirler</label>
+                                    <select class="form-control" id="SelectCity1" name="SelectCity">
+                                        <option>Select City</option>
+                                        <option></option>
+                                    </select>
+                            </div>*@
+                        @*<div class="form-group col-md-6">
+                                <label mb-2">Şehirler</label>
+                                <select asp-for="CityId"
+                                        class="form-control"
+                                        asp-items="@(new SelectList(ViewBag.cities,"Value","Text"))">
+                                    <option>Select City</option>
+                                </select>
+                            </div>*@
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputPassword2 mb-2">Şehirler</label>
+                            <select asp-for="CityId"
+                                    class="form-control"
+                                    asp-items="@(new SelectList(ViewBag.cities,"Value","Text"))">
+                                <option>Select City</option>
+                            </select>
+                        </div>
+
+
+                        @*<div class="form-group col-md-6">
+                                <label for="exampleInputPassword2 mb-2">Şehirler</label>
+                                @Html.DropDownListFor(m => m.CityId,(List<SelectListItem>)ViewBag.cities, new { @class = "form-control" })
+                            </div>*@
+
+                        @*
+                            View component ile dropdowna verileri taşıma
+                            @await Component.InvokeAsync("CityList", new { cityName = ViewBag.cities })*@
+
+                    </div>
+                    <button type="submit" class="btn btn-primary submit mb-4">Kayıt ol</button>
+                    <p>
+                        <a href="#" id="btn1">Tüm şartları okudum, Kabul ediyorum.</a>
+                    </p>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <br />
+    <script>
+        $('#btn1').click(function () {
+            swal("Sitemizde verdiğimiz mail adresi üzerinden" +
+                "bilgi ve haber epostaları spam ölçüsüne varmadan gönderilmeye devam edilecektir." +
+                "Eğer e - posta ve bülteninden çıkmak isterseniz mail ileti dizisini durdurabilirsiniz," +
+                "şifre ve mail adresleriniz şifrelenmiş formatta herhangi bir kullancının" +
+                "görmeyeceği şekilde veritabanlarımızda saklanmaktadır.");
+        })
+
+    </script>
+</section>

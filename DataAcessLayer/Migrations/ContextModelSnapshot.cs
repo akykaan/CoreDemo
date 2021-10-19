@@ -84,7 +84,7 @@ namespace DataAcessLayer.Migrations
                     b.ToTable("Blogs");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.Category", b =>
+            modelBuilder.Entity("EntityLayer.Concrete.Categories", b =>
                 {
                     b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
@@ -102,7 +102,22 @@ namespace DataAcessLayer.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Categorys");
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.City", b =>
+                {
+                    b.Property<int>("CityId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CityName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CityId");
+
+                    b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Comment", b =>
@@ -174,6 +189,9 @@ namespace DataAcessLayer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("CityId")
+                        .HasColumnType("int");
+
                     b.Property<string>("WriterAbout")
                         .HasColumnType("nvarchar(max)");
 
@@ -194,12 +212,14 @@ namespace DataAcessLayer.Migrations
 
                     b.HasKey("WriterId");
 
+                    b.HasIndex("CityId");
+
                     b.ToTable("Writers");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Blog", b =>
                 {
-                    b.HasOne("EntityLayer.Concrete.Category", "Category")
+                    b.HasOne("EntityLayer.Concrete.Categories", "Category")
                         .WithMany("Blogs")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -219,14 +239,30 @@ namespace DataAcessLayer.Migrations
                     b.Navigation("Blog");
                 });
 
+            modelBuilder.Entity("EntityLayer.Concrete.Writer", b =>
+                {
+                    b.HasOne("EntityLayer.Concrete.City", "City")
+                        .WithMany("Writers")
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("City");
+                });
+
             modelBuilder.Entity("EntityLayer.Concrete.Blog", b =>
                 {
                     b.Navigation("Comments");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.Category", b =>
+            modelBuilder.Entity("EntityLayer.Concrete.Categories", b =>
                 {
                     b.Navigation("Blogs");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.City", b =>
+                {
+                    b.Navigation("Writers");
                 });
 #pragma warning restore 612, 618
         }
