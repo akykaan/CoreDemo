@@ -316,9 +316,12 @@ C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\obj\Debug\net5.0\CoreDemo.dll
 C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\obj\Debug\net5.0\ref\CoreDemo.dll
 C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\obj\Debug\net5.0\CoreDemo.pdb
 C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\obj\Debug\net5.0\CoreDemo.genruntimeconfig.cache
-C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\Shared\Components\CityList\Default.cshtml.g.cs
 C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\obj\Debug\net5.0\CoreDemo.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
+C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\Register\RegisterDropDownPartial.cshtml.g.cs

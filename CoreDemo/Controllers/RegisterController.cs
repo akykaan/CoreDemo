@@ -1,8 +1,10 @@
 ﻿using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAcessLayer.Concrete;
 using DataAcessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -38,25 +40,31 @@ namespace CoreDemo.Controllers
 				ViewBag.cities = "yok";
 				return View();
 			}
-			//List<SelectListItem> cities =
-			//	(from i in db.Cities.ToList()
-			//	 select new SelectListItem
-			//	 {
-			//		 Text = i.CityName,
-			//		 Value = i.CityId.ToString()
-			//	 }).ToList();
-			//ViewBag.cities = cities;
 		}
 
 		[HttpPost]
 		public IActionResult Index(Writer p,City city)
 		{
-			p.WriterStatus = true;
-			p.WriterAbout = "deneme test";
-			p.CityId = city.CityId;
-			wm.WriterAdd(p);
+			WriterValidator wV = new WriterValidator();
+			ValidationResult result = wV.Validate(p);
 
-			return RedirectToAction("Index","Blog");
+			if (result.IsValid)
+			{
+				p.WriterStatus = true;
+				p.WriterAbout = "deneme test";
+				p.CityId = city.CityId;
+				wm.WriterAdd(p);
+
+				return RedirectToAction("Index", "Blog");
+			}
+			else
+			{
+				foreach (var item in result.Errors)
+				{
+					ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+				}
+			}
+			return RedirectToAction("Index");
 		}
 	}
 }

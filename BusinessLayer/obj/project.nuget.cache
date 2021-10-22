@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "bYEerBxJpFPHTjPN0+W7tpc0aXOfxkf7CnnP/wOZVwfKcikKDUbcTllDKlx3l4cIlpITGsZTKUL4EvTH+kdfLA==",
+  "dgSpecHash": "L+Nej7tMlu9UNepV0srWXeWWn6t5yJkeMg84M2C9JJCJOggzjdELgY+w1hDra8R/QbsmB/V9nXIWhmh3l+IFPg==",
   "success": true,
   "projectFilePath": "C:\\Users\\kaana\\Desktop\\coredemo\\CoreDemo\\BusinessLayer\\BusinessLayer.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\kaana\\.nuget\\packages\\fluentvalidation\\10.3.3\\fluentvalidation.10.3.3.nupkg.sha512",
+    "C:\\Users\\kaana\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.3.3\\fluentvalidation.aspnetcore.10.3.3.nupkg.sha512",
+    "C:\\Users\\kaana\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.3.3\\fluentvalidation.dependencyinjectionextensions.10.3.3.nupkg.sha512",
     "C:\\Users\\kaana\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\kaana\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\kaana\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",

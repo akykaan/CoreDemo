@@ -31,7 +31,7 @@ namespace CoreDemo
 			services.AddMvc();
 			services.AddScoped<ICityService, CityManager>();
 			services.AddScoped<ICityDal, EfCityRepository>();
-			
+
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
