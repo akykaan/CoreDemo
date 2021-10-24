@@ -325,3 +325,5 @@ C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\bin\Debug\net5.0\FluentValidat
 C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
 C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\Register\RegisterDropDownPartial.cshtml.g.cs
+C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\City\GetAllCity.cshtml.g.cs
+C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\Shared\Components\CityList\Default.cshtml.g.cs

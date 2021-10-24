@@ -1,0 +1,17 @@
+﻿@model EntityLayer.Concrete.City
+
+@{
+    ViewData["Title"] = "GetAllCity";
+    Layout = "~/Views/Register/Index.cshtml";
+}
+
+<div class="form-group col-md-6">
+    <label for="exampleInputPassword2 mb-2">Şehirler</label>
+    <select asp-for="CityId"
+            class="form-control"
+            asp-items="@(new SelectList(ViewBag.cities,"Value","Text"))">
+        <option>Select City</option>
+    </select>
+</div>
+
+

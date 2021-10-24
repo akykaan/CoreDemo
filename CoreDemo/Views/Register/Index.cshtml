@@ -1,7 +1,4 @@
-﻿@using CoreDemo.Models.RegisterViewModel
-
-@model ViewModel
-@*@model EntityLayer.Concrete.Writer*@
+﻿@model EntityLayer.Concrete.Writer
 
 @{
     ViewData["Title"] = "Index";
@@ -22,28 +19,28 @@
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom01">Adınız soyadınız: </label>
-                            @Html.TextBoxFor(x => x.Writers.WriterName)
-                            @Html.ValidationMessageFor(x => x.Writers.WriterName)
+                            @Html.TextBoxFor(x => x.WriterName)
+                            @Html.ValidationMessageFor(x => x.WriterName)
                             @* <input type="text" class="form-control" id="validationDefault01" name="WriterName" placeholder="" required="">*@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom02">Mail Adresi</label>
-                            @*@Html.TextBoxFor(x => x.WriterMail)
-                                @Html.ValidationMessageFor(x => x.WriterMail)*@
+                            @Html.TextBoxFor(x => x.WriterMail)
+                            @Html.ValidationMessageFor(x => x.WriterMail)
                             @*<input type="email" class="form-control" name="WriterMail" id="validationDefault02" placeholder="" required="">*@
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="exampleInputPassword1 mb-2">Şifre</label>
-                            @*@Html.TextBoxFor(x => x.WriterPassword)
-                                @Html.ValidationMessageFor(x => x.WriterPassword)*@
+                            @Html.TextBoxFor(x => x.WriterPassword)
+                            @Html.ValidationMessageFor(x => x.WriterPassword)
                             @*<input type="password" class="form-control" name="WriterPassWord" id="password" placeholder="" required="required">*@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="exampleInputPassword2 mb-2">Şifre Tekrar</label>
-                            @*@Html.TextBoxFor(x => x.WriterPassword)
-                                @Html.ValidationMessageFor(x => x.WriterPassword)*@
+                            @Html.TextBoxFor(x => x.WriterPassword)
+                            @Html.ValidationMessageFor(x => x.WriterPassword)
                         </div>
                         <script language='javascript' type='text/javascript'>
                             function passCheck(input) {
@@ -57,18 +54,12 @@
                         </script>
                         <div class="form-group col-md-6">
                             <label for="exampleInputPassword2 mb-2">Görsel dosya yolu</label>
-                            @*@Html.TextBoxFor(x => x.WriterImage)
-                                @Html.ValidationMessageFor(x => x.WriterImage)*@
+                            @Html.TextBoxFor(x => x.WriterImage)
+                            @Html.ValidationMessageFor(x => x.WriterImage)
                         </div>
 
-                        <div class="form-group col-md-6">
-                            <label for="exampleInputPassword2 mb-2">Şehirler</label>
-                            <select asp-for="Cities"
-                                    class="form-control"
-                                    asp-items="@(new SelectList(ViewBag.cities,"Value","Text"))">
-                                <option>Select City</option>
-                            </select>
-                        </div>
+                        @await Component.InvokeAsync("CityList", new { id = ViewBag.cities })
+
 
                     </div>
                     <button type="submit" class="btn btn-primary submit mb-4">Kayıt ol</button>

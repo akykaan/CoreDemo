@@ -1,0 +1,11 @@
+﻿@model EntityLayer.Concrete.City
+
+
+<div class="form-group col-md-6">
+    <label for="exampleInputPassword2 mb-2">Şehirler</label>
+    <select asp-for="CityId"
+            class="form-control"
+            asp-items="@(new SelectList(ViewBag.cities,"Value","Text"))">
+        <option disabled >Select City</option>
+    </select>
+</div>
