@@ -77,9 +77,14 @@ namespace DataAcessLayer.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<int>("WriterId")
+                        .HasColumnType("int");
+
                     b.HasKey("BlogId");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("WriterId");
 
                     b.ToTable("Blogs");
                 });
@@ -182,6 +187,24 @@ namespace DataAcessLayer.Migrations
                     b.ToTable("Contacts");
                 });
 
+            modelBuilder.Entity("EntityLayer.Concrete.NewsLetter", b =>
+                {
+                    b.Property<int>("MailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Mail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("MailStatus")
+                        .HasColumnType("bit");
+
+                    b.HasKey("MailId");
+
+                    b.ToTable("NewsLetters");
+                });
+
             modelBuilder.Entity("EntityLayer.Concrete.Writer", b =>
                 {
                     b.Property<int>("WriterId")
@@ -225,7 +248,15 @@ namespace DataAcessLayer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("EntityLayer.Concrete.Writer", "Writer")
+                        .WithMany("Blogs")
+                        .HasForeignKey("WriterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Category");
+
+                    b.Navigation("Writer");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Comment", b =>
@@ -263,6 +294,11 @@ namespace DataAcessLayer.Migrations
             modelBuilder.Entity("EntityLayer.Concrete.City", b =>
                 {
                     b.Navigation("Writers");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.Writer", b =>
+                {
+                    b.Navigation("Blogs");
                 });
 #pragma warning restore 612, 618
         }

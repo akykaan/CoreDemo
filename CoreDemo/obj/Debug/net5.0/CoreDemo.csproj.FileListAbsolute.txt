@@ -327,3 +327,7 @@ C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\bin\Debug\net5.0\FluentValidat
 C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\Register\RegisterDropDownPartial.cshtml.g.cs
 C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\City\GetAllCity.cshtml.g.cs
 C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\Shared\Components\CityList\Default.cshtml.g.cs
+C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\Login\Index.cshtml.g.cs
+C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\Shared\Components\WriterLastBlog\Default.cshtml.g.cs
+C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\NewsLetter\SubscribeMail.cshtml.g.cs
+C:\Users\kaana\Desktop\coredemo\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\ErrorPage\Error1.cshtml.g.cs
