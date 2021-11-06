@@ -2,9 +2,11 @@ using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
 using DataAcessLayer.Abstract;
 using DataAcessLayer.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,13 +30,23 @@ namespace CoreDemo
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddControllersWithViews();
-			services.AddMvc();
+			services.AddMvc(config=>
+			{
+				var policy = new AuthorizationPolicyBuilder()
+				.RequireAuthenticatedUser()
+				.Build();
+
+				config.Filters.Add(new AuthorizeFilter(policy));
+			});
 			services.AddScoped<ICityService, CityManager>();
 			services.AddScoped<ICityDal, EfCityRepository>();
 
 			services.AddScoped<IWriterService, WriterManager>();
 			services.AddScoped<IWriterDal, EfWriterRepository>();
 
+
+			services.AddScoped<IAboutService, AboutManager>();
+			services.AddScoped<IAboutDal, EfAboutRepository>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
