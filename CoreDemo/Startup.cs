@@ -2,6 +2,7 @@ using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
 using DataAcessLayer.Abstract;
 using DataAcessLayer.EntityFramework;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,6 +31,8 @@ namespace CoreDemo
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddControllersWithViews();
+
+			services.AddSession();
 			services.AddMvc(config=>
 			{
 				var policy = new AuthorizationPolicyBuilder()
@@ -38,6 +41,13 @@ namespace CoreDemo
 
 				config.Filters.Add(new AuthorizeFilter(policy));
 			});
+
+			services.AddMvc();
+			services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
+			{
+				x.LoginPath = "/Login/Index";
+			});
+
 			services.AddScoped<ICityService, CityManager>();
 			services.AddScoped<ICityDal, EfCityRepository>();
 
@@ -66,7 +76,9 @@ namespace CoreDemo
 
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
+			app.UseAuthentication();
 
+			app.UseSession();
 			app.UseRouting();
 
 			app.UseAuthorization();
