@@ -21,15 +21,7 @@ namespace CoreDemo.Controllers
 		{
 			return PartialView();
 		}
-		//[HttpPost]
-		//public PartialViewResult PartialAddComment(Comment comment)
-		//{
-		//	comment.CommentDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-		//	comment.CommentStatus = true;
-		//	comment.BlogId = 2;
-		//	cm.CommentAdd(comment);
-		//	return PartialView();
-		//}
+		
 		[HttpPost]
 		public JsonResult PartialAddComment(Comment comment)
 		{

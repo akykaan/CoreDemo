@@ -30,8 +30,6 @@ namespace CoreDemo.Controllers
 			x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
 			if (dataValue != null)
 			{
-				
-
 				var claims = new List<Claim>
 				{
 					new Claim(ClaimTypes.Name,writer.WriterMail)
@@ -43,16 +41,7 @@ namespace CoreDemo.Controllers
 			}
 			return View();
 
-			//Context c = new Context();
-
-			//var dataValue = c.Writers.FirstOrDefault(
-			//	x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
-			//if (dataValue!=null)
-			//{
-			//	HttpContext.Session.SetString("username", writer.WriterMail);
-			//	return RedirectToAction("Index", "Writer");
-			//}
-			//return View();
+			
 		}
 	}
 }

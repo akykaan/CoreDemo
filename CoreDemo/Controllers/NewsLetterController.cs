@@ -21,15 +21,6 @@ namespace CoreDemo.Controllers
 			return PartialView();
 		}
 
-		//[HttpPost]
-		//public PartialViewResult SubscribeMail(NewsLetter newsLetter)
-		//{
-		//	newsLetter.MailStatus = true;
-		//	nlm.AddNewsLetter(newsLetter);
-		//	return PartialView();
-		//}
-
-
 		[HttpPost]
 		public JsonResult SubscribeMail(NewsLetter newsLetter)
 		{
